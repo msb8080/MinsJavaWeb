@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta charset="UTF-8"> 
+<title>使用Cookie登录应用程序</title>
+</head>
+<body style="text-algin: center;">
+	<h2>欢迎使用Cookie登录应用程序</h2>
+	
+	<a href="hiddentext.html">隐藏表单字段</a>
+	<a href="getdata">点击读取employees表中的数据</a>
+	<a href="ViewServlet?name=dividepage">点击查看分页效果</a>
+	<div>
+        <form action="login" method="post">
+            用户名:&nbsp<input type="text" name="username" /></br>
+            密码:&nbsp&nbsp&nbsp&nbsp<input type="password" name="password" /> </br>
+            <input type="submit" value="登 录" />
+            	<a href="logout">注销</a>
+            	<a href="profile">个人信息</a>
+            	<a href="home.jsp">测试jsp</a>
+        </form>
+    </div>
+	<h1>添加新员工</h1>
+	<form action="SaveServlet" method="post">
+		<table>
+			<tr>
+				<td>姓名:</td>
+				<td><input type="text" name="name" /></td>
+			</tr>
+			<tr>
+				<td>年龄:</td>
+				<td><input type="text" name="age" /></td>
+			</tr>
+
+			<tr>
+				<td>学历:</td>
+				<td><select name="education" style="width: 150px">
+						<option value="专科">专科</option>
+						<option value="本科">本科</option>
+						<option value="研究生">研究生</option>
+						<option value="博士">博士</option>
+						<option value="其它">其它</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>地址:</td>
+				<td><input type="text" name="address" /></td>
+			</tr>
+			<tr>
+				<td>薪水:</td>
+				<td><input type="text" name="salary" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="保存员工信息" /></td>
+			</tr>
+		</table>
+	</form>
+
+	<br />
+	<a href="ViewServlet?name=else">查看员工信息列表</a>
+	 <form action="register" method="post">
+        <table>
+            <tr>
+                <td>用户名:</td>
+                <td><input type="text" name="username" /></td>
+            </tr>
+            <tr>
+                <td>密码:</td>
+                <td><input type="password" name="passwd" /></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" name="email" /></td>
+            </tr>
+            <tr>
+                <td>城市:</td>
+                <td><select name="city">
+                        <option value="北京">北京</option>
+                        <option value="上海">上海</option>
+                        <option value="广州">广州</option>
+                        <option value="深圳">深圳</option>
+                        <option value="其它">其它</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="提交注册" /></td>
+            </tr>
+        </table>
+    </form>
+    
+    <div style="margin: 0px; text-align: center;">
+        <form action="search">
+            关键字:<input type="text" name="keyword" /><input type="submit"
+                value="搜索" />
+        </form>
+    </div>
+    
+     <div style="margin: auto; text-align: center">
+        <form action="upload" method="post" enctype="multipart/form-data">
+            选择文件:<input type="file" name="fname" /><input type="submit"
+                value="上传" />
+        </form>
+    </div>
+    <div style="margin:auto;text-align:center;">
+    <a href="DownloadJSP">下载JSP文件</a>
+</div>
+</body>
+</html>
