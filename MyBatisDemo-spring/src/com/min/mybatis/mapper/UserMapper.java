@@ -31,4 +31,7 @@ public interface UserMapper {
 	public void addUser(User user) throws Exception;
 	//删除用户信息
 	public void  removeUser(int id)throws Exception;
+	//更新用户信息
+	public void updateUser(User user) throws Exception;
+	
 }

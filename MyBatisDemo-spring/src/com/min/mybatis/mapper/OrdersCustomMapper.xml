@@ -5,6 +5,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- namespace命名空间，作用就是对sql进行分类化管理，理解sql隔离性 注意：使用mapper代理方法开发，namespace有特殊重要的作用 -->
 <mapper namespace="com.min.mybatis.mapper.OrdersCustomMapper">
 	
+	<resultMap type="com.min.mybatis.po.Orders" id="OrdersUserLazyLoadingResultMap">
+		<id column="id" property="id"/>
+		<result column="user_id" property="userId"/>
+		<result column="number" property="number"/>
+		<result column="createtime" property="createtime"/>
+		<result column="note" property="note"/>
+		<!-- 实现对用户信息进行延迟加载
+		select:指定延迟加载需要执行的statement的id(是根据user_id查询用户信息的statement)
+		要使用userMapper.xml中findUserById完成。根据用户id(user_id)用户信息的查询，如果findUserById不在本mapper中需要前边加namespace
+		column：就是订单信息中关联用户信息查询的列，是user_id，易错点
+		关联查询的sql理解为：
+(SELECT username FROM USER WHERE orders.`user_id`=user.`id`) username,
+(SELECT sex FROM USER WHERE orders.`user_id`=user.`id`) sex,
+(SELECT birthday FROM USER WHERE orders.`user_id`=user.`id`) birthday
+		-->
+		<association property="user" javaType="com.min.mybatis.po.User" select="com.min.mybatis.mapper.UserMapper.findUserById" column="user_id">
+		</association>
+	</resultMap>
+	<!-- 延迟加载   查询订单并且关联查询用户信息 -->
+<select id="findOrdersUserLazyLoading" resultMap="OrdersUserLazyLoadingResultMap">
+	SELECT * FROM orders
+</select>
+	
+	
+	
+	
 	<!-- 订单查询关联用户的resultMap -->
 	<!-- type:需要映射的pojo对象类型 
 		id:使用这个resultMap的唯一标识符-->

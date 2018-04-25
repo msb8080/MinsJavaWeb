@@ -9,7 +9,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.runner.RunWith;
 
 import com.min.mybatis.po.User;
 import com.min.mybatis.po.UserCustom;
@@ -24,6 +27,9 @@ import com.min.mybatis.po.UserQueryVo;
  *@since
  *@return
  */
+//使junit识别
+@RunWith(JUnitPlatform.class)
+@DisplayName("Testing using JUnit 5")
 class UserMapperTest {
 	public SqlSessionFactory sqlSessionFactory;
 	@BeforeEach

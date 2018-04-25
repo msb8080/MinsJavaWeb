@@ -24,5 +24,6 @@ public interface OrdersCustomMapper {
 	public List<Orders> findOrdersAndOrderDetailResultMap();
 	//查询用户和用户购买的商品信息
 	public List<User> findUserAndItemsResultMap();
-	
+	//查询订单信息，延迟加载关联查询的用户信息
+	public List<Orders> findOrdersUserLazyLoading();
 } 

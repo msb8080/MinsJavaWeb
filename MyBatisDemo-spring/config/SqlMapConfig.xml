@@ -7,7 +7,14 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<properties resource="db.properties">
 	</properties>
 	<!-- 全局配置参数，需要时再用 -->
-	<!-- <settings></settings> -->
+	<!-- 延迟加载配置 -->
+	<settings>
+		<setting name="lazyLoadingEnabled" value="true"/><!-- 开启延迟加载 -->
+		<setting name="aggressiveLazyLoading" value="false"/><!-- 设置为按需加载 -->
+		<setting name="cacheEnabled" value="true"/><!-- 开启二级缓存 -->
+	</settings>
+	
+	
 	<!-- 配置别名 -->
 	<typeAliases>
 		<!-- 针对单个别名的定义
