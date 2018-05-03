@@ -1,0 +1,5 @@
+这是mybatis官网提供的逆向工程项目，这里使用java程序和xml配置文件实现。
+
+mybatis需要程序员自己编写sql语句，mybatis官方提供逆向工程，可以针对
+单表自动生成mybatis执行所需要的代码(mapper.java,mapper.xml,po)
+企业实际开发中，常用的逆向工程方式：由数据库的表生成java代码

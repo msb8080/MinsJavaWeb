@@ -1,0 +1,8 @@
+这是mybatis整合spring的项目实例
+
+整合思路
+1.需要spring通过单例方式管理SqlSessionFactory
+2.spring和mybatis整合生成代理对象，使用SqlSessionFactory创建SqlSession(spring和mybatis整合自动完成)
+3.由spring进行管理持久层的mapper
+
+junit 5测试

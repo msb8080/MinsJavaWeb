@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 配置别名 -->
+	<typeAliases>	
+		<!-- 批量别名定义
+		type：指定包名
+		mybatis自动扫面包中的po类，自动定义别名，别名就是类名（首字母大写或者小写）
+		 -->
+		<package name="cn.min.ssm.po"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="sqlmap/User.xml" /> 
+		<!-- 和spring整合后，使用mapper扫描器，这里不需要配置 -->
+<!-- 		<package name="cn.min.ssm.mapper"/> -->
+	</mappers>
+</configuration>
