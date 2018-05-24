@@ -1,0 +1,1 @@
+这个实例项目只是单独的spring和springmvc整合，不涉及mybatis的使用，查询的数据使用的是静态数据
