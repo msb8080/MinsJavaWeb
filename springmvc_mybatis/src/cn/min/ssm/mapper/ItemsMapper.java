@@ -4,7 +4,14 @@ import cn.min.ssm.po.Items;
 import cn.min.ssm.po.ItemsExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-
+/**
+ * 
+* @ClassName: ItemsMapper 
+* @Description: 商品信息 mapper接口
+* @author min
+* @date 2018年5月26日 下午7:25:38 
+*
+ */
 public interface ItemsMapper {
     int countByExample(ItemsExample example);
 

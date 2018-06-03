@@ -19,7 +19,8 @@
 	mvc:annotation-driven默认加载了很多的参数绑定方法，比如json转换解析器
 	实际开发使用这个
 	-->
-   <mvc:annotation-driven></mvc:annotation-driven> 
+	<!-- conversion-service 配置自定义参数绑定(类型转换) -->
+   <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven> 
 		
 	<!--对于注解的Handler可以单个配置
 	实际开发中建议使用组件扫描	
@@ -34,7 +35,16 @@
 		<!-- 配置jsp路径的后缀 -->
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-	
+	<!-- 自定义参数绑定服务bean -->
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<!-- 转换器 -->
+		<property name="converters">
+			<list>
+				<!-- 日期类型转换 -->
+				<bean class="cn.min.ssm.controller.converter.CustomDateConverter"></bean>
+			</list>
+		</property>
+	</bean>
 </beans>
 
 

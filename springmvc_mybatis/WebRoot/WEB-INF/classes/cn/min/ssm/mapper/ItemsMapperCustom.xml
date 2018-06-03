@@ -7,7 +7,7 @@
 		<!-- 商品查询条件通过ItemsQueryVo包装对象中itemsCustom属性传递 -->
 		<if test="itemsCustom!=null">
 			<if test="itemsCustom.name!=null and itemsCustom.name!=''">
-				 items.name LIKE '%${items.name}%';
+				 items.name LIKE '%${itemsCustom.name}%';
 			</if>
 		</if>
 		
