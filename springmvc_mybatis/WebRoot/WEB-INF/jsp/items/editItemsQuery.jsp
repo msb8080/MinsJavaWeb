@@ -12,8 +12,8 @@ function queryItems(){
 	document.itemsform.action = "${pageContext.request.contextPath }/items/queryItems.action";
 	document.itemsform.submit();
 }
-function deleteItems() {
-	document.itemsform.action = "${pageContext.request.contextPath }/items/deleteItems.action";
+function editItemsAllSubmit() {
+	document.itemsform.action = "${pageContext.request.contextPath }/items/editItemsAllSubmit.action";
 	document.itemsform.submit();
 }
 </script>
@@ -25,30 +25,25 @@ function deleteItems() {
 <tr>
 <td>商品名称：<input name="itemsCustom.name">
 <input type="button" value="查询" onclick="queryItems()"/>
-<input type="button" value="批量删除" onclick="deleteItems()"/>
+<input type="button" value="批量修改提交" onclick="editItemsAllSubmit()"/>
 </td>
 </tr>
 </table>
 商品列表：
 <table width="100%" border=1>
 <tr>
-	<td>选择</td>
 	<td>商品名称</td>
 	<td>商品价格</td>
 	<td>生产日期</td>
 	<td>商品描述</td>
-	<td>操作</td>
 </tr>
-<c:forEach items="${itemsList}" var="item">
+<c:forEach items="${itemsList}" var="item" varStatus="status">
 <tr>
-	<td><input type="checkbox" name="items_id" value="${item.id}" /></td>
-	<td>${item.name }</td>
-	<td>${item.price }</td>
-	<td><fmt:formatDate value="${item.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-	<td>${item.detail }</td>
-	
-	<td><a href="${pageContext.request.contextPath }/items/editItems.action?id=${item.id}">修改</a></td>
-
+	<td><input type="text" name="itemsList[${status.index}].name" value="${item.name }"/>
+	<input type="hidden" name="itemsList[${status.index}].id" value="${item.id}" /> </td>
+	<td><input type="text" name="itemsList[${status.index}].price" value="${item.price }"/> </td>
+	<td><input type="text" name="itemsList[${status.index }].createtime" value="<fmt:formatDate value="${item.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/>"/> </td>
+	<td><input type="text" name="itemsList[${status.index }].detail" value="${item.detail }"/> </td>
 </tr>
 </c:forEach>
 

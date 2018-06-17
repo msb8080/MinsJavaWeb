@@ -31,4 +31,16 @@ public interface ItemsService {
 	* @throws
 	 */
 	public void updateItems(Integer id,ItemsCustom itemsCustom)throws Exception;
+	
+	/**
+	 * 
+	* @Title: deleteItems 
+	* @Description: 根据id删除商品
+	* @return
+	* @throws Exception  
+	* @return boolean   
+	* @throws
+	 */
+	public boolean deleteItems(Integer id)throws Exception;
+	
 }

@@ -37,7 +37,10 @@ public class ItemsServiceImpl implements ItemsService{
 	public void updateItems(Integer id, ItemsCustom itemsCustom) throws Exception {
 		// 添加业务校验，通常在service接口对关键参数进行校验
 		//检验id是否为空，如果为空抛出异常
-		
+		if(null==id) {
+			System.out.println("id为空，更新失败");
+			return;
+		}
 		//更新商品信息使用updateByPrimaryKeyWithBLOBs根据id更新items表中的所有字段，包括大文本类型
 		//updateByPrimaryKeyWithBLOBs必须传入id
 		itemsCustom.setId(id);
@@ -55,6 +58,19 @@ public class ItemsServiceImpl implements ItemsService{
 		//将items中的内容拷贝到itemsCustom中
 		BeanUtils.copyProperties(items, itemsCustom);
 		return itemsCustom;
+	}
+
+	@Override
+	public boolean deleteItems(Integer id) throws Exception {
+		if(null==id) {
+			System.out.println("id为空，删除失败");
+			return false;
+		}
+		
+		if (itemsMapper.deleteByPrimaryKey(id)<0) {
+			return false;
+		}
+		return true;
 	}
 
 }

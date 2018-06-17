@@ -2,7 +2,13 @@ package cn.min.ssm.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Items {
+	//校验名称在1到30字符之间
+	//message是提示校验出错后的显示信息
+	@Size(min=1,max=30,message="{items.name.length.error}")
     private Integer id;
 
     private String name;
@@ -10,7 +16,8 @@ public class Items {
     private Float price;
 
     private String pic;
-
+    //非空检验
+    @NotNull(message="{items.createtime.isNull}")
     private Date createtime;
 
     private String detail;
