@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<%@ page import="java.util.Map" %> 
+<%@ page import="java.util.HashMap" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,11 +21,19 @@ function deleteItems() {
 </script>
 </head>
 <body> 
+当前用户:${username },<a href="${pageContext.request.contextPath}/logout.action">退出</a>
 <form name="itemsform" action="${pageContext.request.contextPath }/items/queryItems.action" method="post">
 查询条件：
 <table width="100%" border=1>
 <tr>
-<td>商品名称：<input name="itemsCustom.name">
+<td>
+商品名称：<input name="itemsCustom.name" />
+商品类型：
+<select name="itemtype">  
+    <c:forEach items="${itemtypes}" var="itemtype">  
+        <option value="${itemtype.key}">${itemtype.value}</option>  
+    </c:forEach>  
+</select>  
 <input type="button" value="查询" onclick="queryItems()"/>
 <input type="button" value="批量删除" onclick="deleteItems()"/>
 </td>

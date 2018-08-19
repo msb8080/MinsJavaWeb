@@ -15,57 +15,103 @@
     http://www.springframework.org/schema/context/spring-aop.xsd
     http://www.springframework.org/schema/tx 
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
-	<!-- 使用mvc:annotation-driven代替上边注解映射器和注解适配器配置 
-	mvc:annotation-driven默认加载了很多的参数绑定方法，比如json转换解析器
-	实际开发使用这个
-	-->
+	<!-- 使用mvc:annotation-driven代替上边注解映射器和注解适配器配置 mvc:annotation-driven默认加载了很多的参数绑定方法，比如json转换解析器 
+		实际开发使用这个 -->
 	<!-- conversion-service 配置自定义参数绑定(类型转换) -->
-   <mvc:annotation-driven conversion-service="conversionService" validator="validator"></mvc:annotation-driven> 
-		
-	<!--对于注解的Handler可以单个配置
-	实际开发中建议使用组件扫描	
-	  -->
-	<context:component-scan base-package="cn.min.ssm.controller"></context:component-scan>
+	<mvc:annotation-driven
+		conversion-service="conversionService" validator="validator"></mvc:annotation-driven>
 
-	<!-- 配置视图解析器
-	解析jsp，默认使用jstl标签，classpath下的需要有jstl的包-->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<!-- 静态资源解析
+	包括:js,css,img...
+	-->
+	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+	<mvc:resources location="/img/" mapping="/img/**"></mvc:resources>
+	<!-- 拦截器配置 -->
+	<!--拦截器-->
+	<mvc:interceptors>
+		<!--多个拦截器，顺序执行 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="cn.min.ssm.interceptor.LoginInterceptor"></bean>
+		</mvc:interceptor>
+
+		<mvc:interceptor>
+		<!-- /**表示所有路径包括其子url路径 -->
+			<mvc:mapping path="/**" />
+			<bean class="cn.min.ssm.interceptor.HandlerInterceptor1"></bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="cn.min.ssm.interceptor.HandlerInterceptor2"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	<!--对于注解的Handler可以单个配置 实际开发中建议使用组件扫描 -->
+	<context:component-scan
+		base-package="cn.min.ssm.controller"></context:component-scan>
+
+	<!-- 配置视图解析器 解析jsp，默认使用jstl标签，classpath下的需要有jstl的包 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 配置jsp路径的前缀 -->
 		<property name="prefix" value="/WEB-INF/jsp/"></property>
 		<!-- 配置jsp路径的后缀 -->
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	<!-- 自定义参数绑定服务bean -->
-	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+	<bean id="conversionService"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<!-- 转换器 -->
 		<property name="converters">
 			<list>
 				<!-- 日期类型转换 -->
-				<bean class="cn.min.ssm.controller.converter.CustomDateConverter"></bean>
+				<bean
+					class="cn.min.ssm.controller.converter.CustomDateConverter"></bean>
 			</list>
 		</property>
 	</bean>
 	<!-- 自定义的校验器 -->
-	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-	<!-- hibernate校验器 -->
-	<property name="providerClass" value="org.hibernate.validator.HibernateValidator">
-	</property>
-    <!--指定校验使用的资源文件，如果不指定则默认使用classpath下的ValidationMessage.properties  -->
-	<property name="validationMessageSource" ref="messageSource"></property>
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<!-- hibernate校验器 -->
+		<property name="providerClass"
+			value="org.hibernate.validator.HibernateValidator">
+		</property>
+		<!--指定校验使用的资源文件，如果不指定则默认使用classpath下的ValidationMessage.properties -->
+		<property name="validationMessageSource" ref="messageSource"></property>
 	</bean>
 	<!-- 校验错误信息配置文件 -->
-	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-	<!-- 资源文件名 -->
-	<property name="basenames">
-		<list>
-			<value>classpath:CustomValidationMessage</value>
-		</list>
-	</property>
-	<!-- 资源文件编码格式 -->
-	<property name="fileEncoding" value="utf-8"></property>
-	<!-- 对资源文件内容缓存时间，单位秒 -->
-	<property name="cacheSeconds" value="120"></property>
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<!-- 资源文件名 -->
+		<property name="basenames">
+			<list>
+				<value>classpath:CustomValidationMessage</value>
+			</list>
+		</property>
+		
+		<!-- 资源文件编码格式 -->
+		<!-- <property name="defaultEncoding" value="UTF-8"/> -->
+		<property name="fileEncodings">
+			<props>
+				<prop key="classpath:CustomValidationMessage">UTF-8</prop>
+			</props>
+		</property>
+		<!-- 对资源文件内容缓存时间，单位秒 -->
+		<property name="cacheSeconds" value="120"></property>
 	</bean>
+	<!-- 全局异常处理器配置
+	只要实现HandlerExceptionResolver接口就是全局异常处理器，且只有一个 -->
+	<bean class="cn.min.ssm.exception.CustomExceptionResolver">
+	</bean>
+	<!-- 文件上传 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设置上传文件的最大尺寸为5MB -->	
+		<property name="maxUploadSize">
+			<value>5242880</value>
+		</property>
+	</bean>	
 </beans>
 
 

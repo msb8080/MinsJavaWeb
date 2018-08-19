@@ -1,0 +1,19 @@
+还未学习的课程：
+1.springmvc实现json交互-requestbody和responseBody
+2.springmvc实现json交互-准备环境
+3.springmvc实现json交互-json交互测试
+4.springmvc对RESTful支持
+5.springmvc拦截器-定义和配置
+6.springmvc拦截器-多拦截器测试
+7.springmvc拦截器-实现登录认证
+学完之后，再进行复习
+
+下一个项目：使用IDEA来重做springmvc和mybatis整合工作
+并且查看spring源码
+
+
+未来任务：
+1.将javaweb进行重新学习总结
+2.java IO,java 集合，java多线程，进行学习总结
+3.看那本《经典-深入分析java Web技术内幕
+4.数据结构和算法
