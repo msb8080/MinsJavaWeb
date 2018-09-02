@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Our Love Story</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        @font-face {
+            font-family: digit;
+            src: url('digital-7_mono.ttf') format("truetype");
+        }
+    </style>
+    <link href="css/default.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+<div id="mainDiv">
+    <div id="content">
+        <div id="code">
+            <span class="comments">/**</span><br />
+            <span class="space"/><span class="comments">* We are programmers,</span><br />
+            <span class="space"/><span class="comments">* so I write some code to celebrate our 4st anniversary.</span><br />
+            <span class="space"/><span class="comments">*/</span><br />
+            Boy u = <span class="keyword">new</span> Boy(<span class="string">"李博"</span>);<br />
+            Girl i = <span class="keyword">new</span> Girl(<span class="string">"潘瑶"</span>);<br />
+            <span class="comments">// Aug 13, 2014, You told me You love me. </span><br />
+            u.love(me);<br />
+            <span class="comments">// Yes, I accepted and became your girlfriend eversince.</span><br />
+            i.accepted();<br />
+            <span class="comments">// Since then, I miss u every day.</span><br />
+            i.miss(u);<br />
+            <span class="comments">// And take care of u and our love.</span><br />
+            i.takeCareOf(u);<br />
+            <span class="comments">// I say that I won't be so easy to marry you.</span><br />
+            <span class="comments">// So You keep waiting and You have confidence that I will.</span><br />
+            <span class="keyword">boolean</span> isHesitate = <span class="keyword">true</span>;<br />
+            <span class="keyword">while</span> (isHesitate) {<br />
+            <span class="placeholder"/>u.waitFor(me);<br />
+            <span class="placeholder"/><span class="comments">// I think it is an important decision</span><br />
+            <span class="placeholder"/><span class="comments">// and you should think it over.</span><br />
+            <span class="placeholder"/>isHesitate = u.thinkOver();<br />
+            }<br />
+            <span class="comments">// After a romantic wedding, we will live happily ever after.</span><br />
+            u.marry(me);<br />
+            i.liveHappilyWith(u);<br />
+        </div>
+        <div id="loveHeart">
+            <canvas id="garden"></canvas>
+            <div id="words">
+                <div id="messages">
+                    libo, I have fallen in love with you for
+                    <div id="elapseClock"></div>
+                </div>
+                <div id="loveu">
+                    Love u forever and ever.<br/>
+                    <div class="signature">- panyao</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div id="copyright">-->
+    <!--Inspired by <a href="###">FlowerPower</a> project.<br />-->
+    <!--Copyright © 2018 <a href='##'>YukiPan</a> 2014-2018-->
+    <!--</div>-->
+</div>
+<script type="text/javascript">
+    var globalConfig = {BusinessType:'default',Environment:'other',LoginType:'notload',NeedNav:'T'};
+    var ua=navigator.userAgent.toLowerCase()||'';
+    var uautil={isMobi: /(iphone|ios|android|mini|mobile|mobi|nokia|symbian|ipod|ipad|windows\s+phone|mqqbrowser|wp7|wp8|ucbrowser7|ucweb|360\s+aphone\s+browser)/.test(ua)}
+    if(uautil.isMobi==true){ window.location.replace("//py0924.top/love/index_H5.html");}
+</script>
+
+<script type="text/javascript">
+    var offsetX = $("#loveHeart").width() / 2;
+    var offsetY = $("#loveHeart").height() / 2 - 55;
+    var together = new Date();
+    together.setFullYear(2014, 8, 13);
+    together.setHours(12);
+    together.setMinutes(0);
+    together.setSeconds(0);
+    together.setMilliseconds(0);
+
+    if (!document.createElement('canvas').getContext) {
+        var msg = document.createElement("div");
+        msg.id = "errorMsg";
+        msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+        document.body.appendChild(msg);
+        $("#code").css("display", "none")
+        $("#copyright").css("position", "absolute");
+        $("#copyright").css("bottom", "10px");
+        document.execCommand("stop");
+    } else {
+        setTimeout(function () {
+            startHeartAnimation();
+        }, 4000);
+
+        timeElapse(together);
+        setInterval(function () {
+            timeElapse(together);
+        }, 500);
+
+        adjustCodePosition();
+        $("#code").typewriter();
+    }
+</script>
+</body>
+</html>

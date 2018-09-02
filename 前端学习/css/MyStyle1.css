@@ -1,0 +1,19 @@
+body
+{
+    font-size:75%;
+    font-family:"lucida calligraphy",arial,'sans serif';
+    background-color:#DCDCDC;
+    color:#8A2BE2;
+    margin:10px;
+}
+
+h1 {font-size:200%;}
+h2 {font-size:140%;}
+h3 {font-size:110%;}
+
+th {background-color:#D3D3D3;}
+td {background-color:#FFFAF0;}
+
+a:link {color:#8A2BE2;text-decoration:none;}
+a:hover {color:red;font-weight:bold;text-decoration:none;}
+a:visited {text-decoration:none;}

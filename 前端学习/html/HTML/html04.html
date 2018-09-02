@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../css/MyStyle3.css">
+    <link rel="shortcup icon" href="../../image/pandas.ico">
+</head>
+<body>
+<a href="html03.html">上一页</a><a href="html05.html">下一页</a>
+<a name="top" title="html02顶部">顶部</a>
+<hr>
+<pre>
+    一、HTML表单和输入
+    1.HTML表单
+    表单是一个包含表单元素的区域。
+    表单元素是允许用户在表单中输入内容,比如：文本域(textarea)、
+    下拉列表、单选框(radio-buttons)、复选框(checkboxes)等等。
+    表单使用表单标签form来设置:
+    2.HTML表单-输入元素
+    多数情况下被用到的表单标签是<b>输入标签（input）</b>。
+    输入类型是由类型属性（type）定义的。大多数经常被用到的输入类型如下：
+        2.1 文本域（Text Fields）
+        文本域通过 input type="text" 标签来设定，当用户要在表单中键入字母、数字等内容时，就会用到文本域。
+        注意:表单本身并不可见。同时，在大多数浏览器中，文本域的缺省宽度是<b>20个字符</b>。
+        2.2 密码字段
+        密码字段通过标签 input type="password" 来定义
+        注意:密码字段字符不会明文显示，而是以星号或圆点替代。
+        2.3 单选按钮（Radio Buttons）
+        input type="radio" 标签定义了表单单选框选项
+        2.4 复选框（Checkboxes）
+        input type="checkbox" 定义了复选框. 用户需要从若干给定的选择中选取一个或若干选项。
+        2.5 提交按钮(Submit Button)
+        input type="submit" 定义了提交按钮.
+        当用户单击确认按钮时，表单的内容会被传送到另一个文件。表单的<b>动作属性</b>定义了目的文件的文件名。
+        由动作属性定义的这个文件通常会对接收到的输入数据进行相关的处理.
+        2.6 datalist
+        指定一个预先定义的输入控件选项列表
+        2.6 HTML表单综合示例
+        <form   action="">
+            <fieldset>
+                <legend>个人信息:</legend>
+           用户名:<input type="text" name="username"><br>
+            密码:<input type="password" name="password"><br>
+            性别:<input type="radio" name="sex" value="male">男<input type="radio" name="sex" value="female">女<br>
+            资产:<input type="checkbox" name="vehicle" value="Bike">I have a bike<input type="checkbox" name="vehicle" value="Car">I have a car
+            <input list="browsers">
+            <datalist id="browsers">
+              <option value="Internet Explorer">
+              <option value="Firefox">
+              <option value="Chrome">
+              <option value="Opera">
+              <option value="Safari">
+            </datalist>
+            <select name="cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat" selected>Fiat</option>
+            <option value="audi">Audi</option>
+            </select>
+            <textarea rows="10" cols="30">
+            我是一个文本框。
+            </textarea>
+            <input type="submit" value="提交">
+          </fieldset>
+        </form>
+    二、HTML框架
+    通过使用框架，你可以在同一个浏览器窗口中显示不止一个页面
+    1.设置高度和宽度
+    height和 width 属性用来定义iframe标签的高度与宽度。
+    属性默认以像素为单位, 但是你可以指定其按比例显示 (如："80%")
+    2.移除边框
+    frameborder 属性用于定义iframe表示是否显示边框。
+    设置属性值为 "0" 移除iframe的边框
+    三、HTML颜色
+    HTML 颜色由一个十六进制符号来定义，这个符号由红色、绿色和蓝色的值组成（RGB）。
+    每种颜色的最小值是0（十六进制：#00）。最大值是255（十六进制：#FF）。
+    相对于使用rgb(255,255,0)，使用rgba(255,255,0,0.5)可以实现设置颜色透明度的功能，这里的0.5表示透明度，范围0~1。
+    四、HTML脚本
+    1.script标签
+    script 标签用于定义客户端脚本，比如 JavaScript。
+    script 元素既可包含脚本语句，也可通过 src 属性指向外部脚本文件。
+    2.nonscript标签
+    noscript 标签提供无法使用脚本时的替代内容，比方在浏览器禁用脚本时，或浏览器不支持客户端脚本时。
+    noscript 元素可包含普通 HTML 页面的 body 元素中能够找到的所有元素。
+    只有在浏览器不支持脚本或者禁用脚本时，才会显示 noscript 元素中的内容：
+    <script>document.write("<p>这是一个段落。</p>");</script>
+    五、HTML 字符实体
+    在 HTML 中，某些字符是预留的。实体名称对大小写敏感！
+    在 HTML 中不能使用小于号（<）和大于号（>），这是因为浏览器会误认为它们是标签。
+    如果希望正确地显示预留字符，我们必须在 HTML 源代码中使用字符实体（character entities）。
+    1.HTML常用字符实体
+    空格&nbsp; &#160;小于号 &lt;&#60;大于号 &gt;&#62;
+    六、HTML URL
+    scheme - 定义因特网服务的类型。最常见的类型是 http
+    host - 定义域主机（http 的默认主机是 www）
+    domain - 定义因特网域名，比如 runoob.com
+    :port - 定义主机上的端口号（http 的默认端口号是 80）
+    path - 定义服务器上的路径（如果省略，则文档必须位于网站的根目录中）。
+    filename - 定义文档/资源的名称
+
+</pre>
+</body>
+</html>

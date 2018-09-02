@@ -1,0 +1,37 @@
+/*共用的样式*/
+
+
+body
+{
+    font-size:75%;
+    font-family:verdana,arial,'sans serif';
+    /*background-image:url('gradient.png');*/
+    /*background-repeat:repeat-x;*/
+    background-color:#FFFFF0;
+    color:#000080;
+    margin:70px;
+}
+
+h1 {font-size:200%;}
+h2 {font-size:140%;}
+h3 {font-size:110%;}
+
+th {background-color:#ADD8E6;}
+
+ul {list-style:circle;}
+ol {list-style:upper-roman;}
+
+a:link {color:#000080;}
+a:hover {color:red;}
+
+
+table{
+    border-collapse:collapse;/*border-collapse 属性设置是否将表格边框折叠为单一边框*/
+}
+table,th,td{
+    text-align:center;
+    border: 1px solid blue ;
+}
+a:link {color:#8A2BE2;text-decoration:none;}
+a:hover {color:red;font-weight:bold;text-decoration:none;}
+a:visited {text-decoration:none;}

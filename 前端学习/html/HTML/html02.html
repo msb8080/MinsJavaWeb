@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../css/MyStyle3.css">
+    <link rel="shortcup icon" href="../../image/pandas.ico">
+    <style type="text/css">
+
+
+    </style>
+
+
+
+</head>
+<body>
+    <a href="html01.html">上一页</a><a href="html03.html">下一页</a>
+    <a name="top" title="html02顶部">顶部</a><hr>
+<pre>
+    <a name="">一、HTML头部</a><hr />
+    使用 title 标签定义HTML文档的标题
+    使用 base定义页面中所有链接默认的链接目标地址。
+    使用 meta 元素来描述HTML文档的描述，关键词，作者，字符集等。
+    1.HTML head元素
+    重要的有title、meta、script、link、style、base
+    1.1 HTML title元素
+    定义了浏览器工具栏的标题
+    当网页添加到收藏夹时，显示在收藏夹中的标题
+    显示在搜索引擎结果页面的标题
+    <b>注意：title元素不仅可以显示文本，也可以在左侧显示logo等图片。
+    显示时，要将link标签放入head里。
+    link rel="icon" href="../image/pandas.ico
+    </b>
+    1.2 HTML base元素
+    描述了基本的链接地址/链接目标，该标签作为HTML文档中所有的链接标签的默认链接
+    1.3 HTML link元素
+    定义了文档与外部资源之间的关系，通常用于链接到样式表。
+    rel 属性规定当前文档与被链接文档之间的关系
+    1.4 HTML style元素
+    定义了HTML文档的样式文件引用地址
+    你也可以直接添加样式来渲染 HTML 文档
+    1.5 HTML meta元素
+    提供了元数据.元数据也不显示在页面上，但会被浏览器解析。
+    META 元素通常用于指定网页的描述，关键词，文件的最后修改时间，作者，和其他元数据。
+    元数据可以使用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他Web服务
+    (1) 最常用的页面字符编码的设置
+    (2) 每30秒钟刷新当前页面
+    meta http-equiv="refresh" content="30"
+    (3) 为搜索引擎定义关键词
+    meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript"
+    (4) 为网页定义描述内容
+    meta name="description" content="免费 Web & 编程 教程"
+    (5) 定义网页作者
+    meta name="author" content="Runoob"
+    1.6 HTML script元素
+    用于加载脚本文件
+    <hr>
+    2.HTML 样式CSS(cascade style sheets)
+    2.1 如何使用CSS
+    CSS 是在 HTML 4 开始使用的,是为了更好的渲染HTML元素而引入的.
+    CSS 可以通过以下方式添加到HTML中:
+    内联样式- 在HTML元素中使用"style" 属性
+    内部样式表 -在HTML文档头部 head 区域使用style元素 来包含CSS
+    外部引用 - 使用外部 CSS 文件
+    最好的方式是通过外部引用CSS文件.
+    2.1.1 内联样式
+    当特殊的样式需要应用到个别元素时，就可以使用内联样式。
+    使用内联样式的方法是在相关的标签中使用样式属性。样式属性可以包含任何 CSS 属性。
+    3 HTML图片
+    在 HTML 中，图像由img 标签定义。
+    img是空标签，意思是说，它只包含属性，并且没有闭合标签。
+    源属性src——要显示的图片的位置链接、Alt属性——无法显示图像时显示的信息
+    height（高度） 与 width（宽度）属性用于设置图像的高度与宽度。
+    应用：和a标签一起实现图片链接
+    创建图像映射
+    该段代码中的shape指的是点击区域的形状，coords指的应该是链接区域在图片中的坐标（像素为单位)
+    1、矩形：(左上角顶点坐标为(x1,y1)，右下角顶点坐标为(x2,y2))
+    2、圆形：(圆心坐标为(X1,y1)，半径为r)
+    3、多边形：(各顶点坐标依次为(x1,y1)、(x2,y2)、(x3,y3) ......)
+    <img src="../../image/ship.jpg" width="145" height="126" alt="Planets" usemap="#planetmap">
+    <map name="planetmap">
+        <area shape="rect" coords="0,0,82,126" alt="Sun" href="html01.html">
+        <area shape="circle" coords="90,58,3" alt="Mercury" href="html01.html">
+        <area shape="circle" coords="124,58,8" alt="Venus" href="html01.html">
+    </map>
+
+
+</pre>
+</body>
+</html>

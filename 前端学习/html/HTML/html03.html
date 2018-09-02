@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../css/MyStyle3.css">
+    <link rel="shortcup icon" href="../../image/pandas.ico">
+</head>
+<body>
+<a href="html02.html">上一页</a><a href="html04.html">下一页</a>
+<a name="top" title="html02顶部">顶部</a>
+<hr>
+
+<pre>
+    一、HTML 表格<hr>
+    表格由table标签来定义。每个表格均有若干行（由 tr 标签定义），
+    每行被分割为若干单元格（由td标签定义）。字母 td 指表格数据（table data），即数据单元格的内容。
+    数据单元格可以包含文本、图片、列表、段落、表单、水平线、表格等等。
+    <table cellpadding="1" cellspacing="1">
+    <caption>表格标题</caption>
+    <tr>
+        <th>Header 1</th>
+        <th colspan="2">Header 2</th>
+    </tr>
+    <tr>
+        <th rowspan="2">
+            <ul>
+                <li>apples</li>
+                <li>bananas</li>
+                <li>pineapples</li>
+           </ul>
+        </th>
+        <td>row 1, cell 2</td>
+        <td>row 1, cell 3</td>
+    </tr>
+    <tr>
+
+        <td>row 2, cell 2</td>
+        <td>row 2, cell 3</td>
+    </tr>
+    <tr>
+        <td>row 3, cell 1</td>
+        <td>row 3, cell 2</td>
+        <td>row 3, cell 3</td>
+    </tr>
+    </table>
+    </pre>
+    二、HTML 列表<hr>
+    1.有序列表ol
+        有序列表也是一列项目，列表项目使用数字进行标记, 有序列表始于ol标签。每个列表项始于li标签
+        type属性可以设置顺序排列的显示，A-大写字母，a-小写字母，I-罗马数字，i-小写罗马数字
+        <ol type="A">
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+        </ol>
+    2.无序列表ul
+        无序列表是一个项目的列表，此列项目使用粗体圆点（典型的小黑圆圈）进行标记。
+        style属性可以设置列表显示。list-style-type:disc，圆点；list-style-type:circle，圆圈列表，list-style-type:square，方形列表
+        <ul style="list-style-type:circle">
+            <li>一
+                <ol>
+                    <li>one</li>
+                    <li>two</li>
+                    <li>three</li>
+                </ol>
+            </li>
+            <li>二</li>
+            <li>三</li>
+        </ul>
+    3.自定义列表
+        自定义列表不仅仅是一列项目，而是项目及其注释的组合。
+        自定义列表以 dl 标签开始。每个自定义列表项以 dt开始。每个自定义列表项的定义以 dd开始
+    <dl>
+        <dt>一</dt>
+        <dd>one</dd>
+        <dt>二</dt>
+        <dd>two</dd>
+    </dl>
+<pre>
+    三、HTML 区域
+    1.HTML 区块元素
+    大多数 HTML 元素被定义为块级元素或内联元素。
+    块级元素在浏览器显示时，通常会以新行来开始（和结束）。
+    实例: h1,p, ul, table
+        1.1 HTML div元素
+         HTML div元素是块级元素，它可用于组合其他HTML元素的容器。
+         div元素没有特定的含义。除此之外，由于它属于块级元素，浏览器会在其前后显示折行。
+         如果与 CSS 一同使用，div元素可用于对大的内容块设置样式属性。
+         div元素的另一个常见的用途是文档布局。它取代了使用表格定义布局的老式方法。
+         使用table元素进行文档布局不是表格的正确用法。table元素的作用是显示表格化的数据。
+    2.HTML 内联元素
+    内联元素在显示时通常不会以新行开始。
+    实例: b, td, a, img
+        2.1 HTML span元素
+        HTML span元素是内联元素，可用作文本的容器。span元素也没有特定的含义。
+        当与 CSS一同使用时，span元素可用于为部分文本设置样式属性。
+    </pre>
+<pre>
+    四、HTML 布局
+    网页布局对改善网站的外观非常重要。请慎重设计您的网页布局。
+    1.使用div元素——div 元素是用于分组 HTML 元素的块级元素。
+</pre>
+    <div id="container" style="width:500px">
+        <div id="header" style="background-color:#FFA500;text-align:center;">
+        <h1 style="margin-bottom:0;">主要的网页标题</h1>
+        </div>
+        <div id="menu" style="background-color:#FFD700;height:200px;width:100px;float:left;">
+            <b>菜单</b><br>
+            HTML<br>
+            CSS<br>
+            JavaScript
+        </div>
+        <div id="content" style="background-color:#EEEEEE;height:200px;width:400px;float:left;text-align:center;">
+            内容在这里
+        </div>
+        <div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+            版权 © runoob.com
+        </div>
+    </div>
+<pre>
+    2.使用table标签是创建布局的一种简单的方式.但设计表格的目的是呈现表格化数据 - 表格不是布局工具！
+</pre>
+    <table width="500" border="0">
+        <tr>
+            <td colspan="2" style="background-color:#FFA500;">
+                <h1>主要的网页标题</h1>
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:#FFD700;width:100px;">
+                <b>菜单</b><br>
+                HTML<br>
+                CSS<br>
+                JavaScript
+            </td>
+            <td style="background-color:#eeeeee;height:200px;width:400px;">
+                内容在这里</td>
+        </tr>
+            <tr>
+            <td colspan="2" style="background-color:#FFA500;text-align:center;">
+                版权 © runoob.com</td>
+        </tr>
+    </table>
+<pre>
+    3.有用的提示
+    Tip: 使用 CSS 最大的好处是，如果把 CSS 代码存放到外部样式表中，那么站点会更易于维护。
+    通过编辑单一的文件，就可以改变所有页面的布局。如需学习更多有关 CSS 的知识，请访问我们的CSS 教程。
+    Tip: 由于创建高级的布局非常耗时，使用模板是一个快速的选项。
+    通过搜索引擎可以找到很多免费的网站模板（您可以使用这些预先构建好的网站布局，并优化它们）。
+
+</pre>
+</body>
+</html>
